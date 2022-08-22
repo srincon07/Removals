@@ -1,0 +1,162 @@
+{% extends "index.html" %}
+{% load static %}
+{% block head_content %}
+<title>Nationwide Movers</title>
+{% endblock %}
+
+
+{% block booking %}
+<section id="formulario">
+  <h1 class="text-center pt-3">GET YOUR ESTIMATE NOW!</h1>
+  <div class="container">
+    {% if alertSuccess %}
+    <div class="alert alert-success alert-dismissible fade show">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      {{ alertSuccess }}
+    </div>
+    {% endif %}
+    <form method="POST" class="row m-2" id="bookingForm">
+      {% csrf_token %}
+
+      {{ formClient.non_field_errors }}
+      <div class="input-container col-12 col-md-6">
+        {{ formClient.name.errors }}
+        <label for="{{ formClient.name.label_id_name }}" class="form-label p-2">Your Full Name</label>
+        <span>Your Full Name</span>
+        {{ formClient.name }}
+      </div>
+      <div class="input-container col-12 col-md-6">
+        {{ formClient.phoneNumber.errors }}
+        <label for="{{ formClient.phoneNumber.label_id_phoneNumber }}" class="form-label p-2">Your Phone Number</label>
+        <span>Your Phone Number</span>
+        {{ formClient.phoneNumber }}
+      </div>
+      <div class="input-container col-12">
+        {{ formClient.email.errors }}
+        <label for="{{ formClient.email.label_id_email }}" class="form-label p-2">Your Email Address</label>
+        <span>Your Email Address</span>
+        {{ formClient.email }}
+      </div>
+      <div class="input-container col-12">
+        {{ formService.pickUp.errors }}
+        <label for="{{ formService.pickUp.label_id_pickUp }}" class="form-label p-2">Pickup</label>
+        <span>Pickup</span>
+        {{ formService.pickUp }}
+      </div>
+      <div class="input-container textarea">
+        {{ formService.pickUpComment.errors }}
+        <label for="{{ formService.pickUpComment.label_id_pickUpComment }}" class="form-label p-2">Pickup
+          comments</label>
+        <span>Pickup comments</span>
+        {{ formService.pickUpComment }}
+      </div>
+      <div class="input-container col-12">
+        {{ formService.dropOff.errors }}
+        <label for="{{ formService.dropOff.label_id_dropOff }}" class="form-label p-2">Dropoff</label>
+        <span>Dropoff</span>
+        {{ formService.dropOff }}
+      </div>
+      <div class="input-container textarea">
+        {{ formService.dropOffComment.errors }}
+        <label for="{{ formService.dropOffComment.label_id_dropOffComment }}" class="form-label p-2">Dropoff
+          comments</label>
+        <span>Dropoff comments</span>
+        {{ formService.dropOffComment }}
+      </div>
+      <div class="col-md-6">
+        {{ formService.date.errors }}
+        {{ formService.date.label_tag }}
+        {{ formService.date }}
+      </div>
+      <div class="col-md-6">
+        {{ formService.move.errors }}
+        {{ formService.move.label_tag }}
+        {{ formService.move }}
+      </div>
+      <div class="col-md-6 mt-3">
+        {{ formService.type.errors }}
+        {{ formService.type.label_tag }}
+        {{ formService.type }}
+      </div>
+      <div class="col-md-6 mt-3">
+        <div id="warning">
+          <!-- Warning from utilities.js -->
+        </div>
+      </div>
+
+      <div class="col-md-6 mt-3 mb-3">
+        <h4>Want to specify your inventory?</h4>
+      </div>
+      <div class="col-md-6">
+        <!-- Button to Open the Modal -->
+        <button type="button" class="btn-send fs-4 fw-bold" data-bs-toggle="modal" data-bs-target="#inventory">
+          Enter Inventory
+        </button>
+      </div>
+      <button id="color-input" class="text-center text-decoration-none btn-send col-md-12 fs-5 mt-3" type="submit">Get yor Quote</button>
+    </form>
+  </div>
+</section>
+
+
+
+<!-- The Modal -->
+<div class="modal fade" id="inventory">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Select your inventory</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div id="accordion">
+          {% for t in furnitureTypes %}
+          <div class="card modal-card">
+            <div class="card-header">
+              <a class="btn" data-bs-toggle="collapse" href="#{{ t.name }}">
+                {{ t.name }}
+              </a>
+            </div>
+            {% for i in furnitureItems %}
+            {% if i.type == t %}
+            <div id="{{ t.name }}" class="collapse show" data-bs-parent="#accordion">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    {{ i.name }}
+                  </div>
+                  <div class="col input-group input-group-sm">
+                    <span class="input-group-text">Qty</span>
+                    <input type="number" name="{{ i.name }}" class="form-control form-control-sm" value="0"
+                      form="bookingForm" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% for item in serviceTypes %}
+{{ item.condition|json_script:item.name}}
+{% endfor %}
+
+
+{% endblock %}

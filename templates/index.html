@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block head_content %}
+
+  {% endblock %}
+  {% load static %}
+  <!---==========Bootstrap y css==========-->
+
+  <!-- Fonts -->
+  <link href="https://www.dafontfree.net/embed/aW1wYWN0LXJlZ3VsYXImZGF0YS8yNS9pLzEyOTYxMi9pbXBhY3QudHRm"
+    rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{% static 'css/scss.css' %}">
+
+  <!-- Javascript -->
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/umd/popper.min.js"
+    integrity="sha384-q9CRHqZndzlxGLOj+xrdLDJa9ittGte1NksRmgJKeCV9DrM7Kz868XYqsKWPpAmn"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <scrip src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    </script>
+</head>
+
+<body class="position-relative" data-spay="scroll" data-target="#header-nav">
+  {% include "nav.html" %}
+  <header>
+    <!--====================carousel==================================-->
+    <section id="main-carousel">
+      <div class="container-fliud">
+        <div id="carousel" class="carousel slide" data-bs-ride="carousel" data-pause="false carousel-fade">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active" data-bs-interval="2000">
+              <img src="{% static 'img/carousel/services4.png' %}" class="d-block w-100 img-fluid" alt="Slider1">
+              <div class="carousel-caption d-none d-md-block ">
+
+              </div>
+            </div>
+
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="{% static 'img/carousel/services6.png' %}" class="d-block w-100 img-fluid " alt="Slider2">
+            </div>
+
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="{% static 'img/carousel/services5.png' %}" class="d-block w-100 img-fluid" alt="Slider3">
+            </div>
+
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="{% static 'img/carousel/services2.png' %}" class="d-block w-100 img-fluid" alt="Slider4">
+            </div>
+
+            <div id="caption4" class="carousel-item" data-bs-interval="2000">
+              <img src="{% static 'img/carousel/services3.png' %}" class="d-block w-100 img-fluid" alt="Slider5">
+            </div>
+
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!--====================/carousel===================================-->
+  </header>
+  <!--====================contenido y formulario======================-->
+
+  <main id="service" class="container-fluid">
+    <div class="row ">
+      <div class="col-12 col-lg-6 md-4 mt-3">
+        <!-- <section id="servicio" class="services"> -->
+        <div class="container">
+          <div class="heading">
+            <h2> Services</h2>
+            <p class="description fs-3 text-center">We provide all services ever need for your business</p>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-12 d-flex align-items-stretch mb-5">
+              <div class="icon_box one">
+                <div class="icon"><i class="bi bi-truck"></i></div>
+                <h4 class="title fs-3">Schedule you Move</h4>
+                <p class="description fs-4 pb-3">Para aquellos que están a punto de iniciar una mudanza hemos
+                  desarrollado diferentes
+                  tipos de servicio acorde a sus necesidades, porque entendemos que mudarse a un nuevo
+                  hogar significa que tendrá muchas cosas que hacer y esto no debería ser un problema
+                  por el que preocuparse. </p>
+                <p class="description fs-4">
+                  We strive to be in constant communication with
+                  our customers until the job is done. To get a free quote,
+                  to arrange your movers, or if you have questions or special
+                  requests, just drop us a line. We look forward to serving you!
+                </p>
+                <p class="description pt-5">
+                <p class="description fs-4 fw-bold"><i class="bi bi-check"></i> Commercial moves</p>
+                <p class="description fs-4 fw-bold"><i class="bi bi-check"></i> Local removals</p>
+                <p class="description fs-4 fw-bold"><i class="bi bi-check"></i> Residential moves</p>
+                <p class="description fs-4 fw-bold"><i class="bi bi-check"></i> Packing and Unpacking Service</p>
+                <p class="description fs-4 fw-bold"><i class="bi bi-check"></i> Furniture assembly/disassembly services
+                </p>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </section>
+      </div>
+      <div class="col-12 col-lg-6  mb-2 mt-4 ">
+        {% block booking %}
+
+        {% endblock %}
+      </div>
+    </div>
+  </main>
+  <!--====================/contenido y formulario======================-->
+
+  <!-----=================section type services===========================-->
+
+  <section id="section1" class="container-fluid pt-3 pb-3">
+    <h1 class="text-center text-light display-4">Services Types</h1>
+    <p class=" zurich fs-4 text-light fw-light mx-3">We are liable for the value of the goods we move for you. There
+      are, however, different levels of liability.
+      The valuation level you choose will determine the type and amount of reimbursement you will receive in the
+      unlikely event we damage or lose an item. Be aware of the various types of protection available.</p>
+    <div class="row mb-3 mx-3">
+      <div class="card">
+        <div class="row g-2">
+          <div class="col-lg-6">
+            <div class="col-lg-12 card-body">
+              <h5 class="card-title color-tservices text-center text-light fs-2">BASIC</h5>
+              <p class="zurich fs-4 text-light fw-light">En este tipo de servicio no se cuenta con un seguro contra daño
+                o perdida de artículos,
+                no obstante nos esforzamos para que su mudanza llegue en excelente condiciones a su destino, ya que
+                nuestros empleados son capacitados en servicios de mudanza y almacenamiento, y contamos con personas
+                honestas
+                cualificadas con experiencia y responsables cuya prioridad es asegurarse de que el cliente quede
+                satisfecho con
+                nuestro servicio. </p>
+              <p class=" zurich fs-4 text-light fw-light">Somos confiables y honestos, por lo que puede estar seguro de
+                que su
+                propiedad está bien protegida bajo nuestro cuidado. El éxito de la empresa se mide en términos de
+                movimientos exitosos que ha realizado desde su creación.</p>
+            </div>
+          </div>
+          <div class="card-width col-lg-6 px-3 py-3 mx-auto d-block" style="max-width: 640px;">
+            <img src="{% static 'img/serviceTypes/Basic.jpg' %}" class="img-fluid" alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3 mx-3">
+      <div class="card">
+        <div class="row g-2">
+          <div class="col-lg-6 px-3 py-3 mx-auto d-block" style="max-width: 640px;">
+            <img src="{% static 'img/serviceTypes/Standard.jpg' %}" class="img-fluid" alt="...">
+          </div>
+          <div class="col-lg-6">
+            <div class="col-lg-12 card-body">
+              <h5 class="card-title text-center text-light fs-2">STANDARD</h5>
+              <p class="zurich fs-4 text-light fw-light">Nuestro servicio estándar cuenta con un seguro de
+                compensación por artículos perdidos o dañados al valor total de reposición, menos la depreciación
+                y el deducible, también cubre cualquier accidente en tu anterior o futura vivienda. Tenga en cuenta
+                que no somos responsables por daños a los artículos empacados y preparados por el cliente a menos
+                que haya daños visibles en el exterior de la caja.</p>
+              <p class=" zurich fs-4 text-light fw-light">En caso de daño, los artículos serán reemplazados o
+                reparados, a discreción de nationwidemovers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3 mx-3">
+      <div class="card">
+        <div class="row g-2">
+          <div class="col-lg-6">
+            <div class="col-lg-12 card-body">
+              <h5 class="card-title text-center text-light fs-2">VIP</h5>
+              <p class="zurich fs-4 text-light fw-light"><span class="fs-2">Third Party Insurance: </span> For coverage
+                over $10,000 insurance can be
+                purchased from any third party provider. Typically called Replacement Value Insurance,
+                this should cover you for the full true replacement value of your goods. If you have Homeowners or
+                Renters Insurance, then you can
+                check with your company to see if they can insure your move. </p>
+              <p class=" zurich fs-5 text-light fw-light"><span class="fs-3">High Value Items: </span>All items in your
+                shipment which are considered to be of extraordinary value must be identified.
+                You must advise us in writing that they are in your shipment. These items are defined as items having a
+                value greater than $100.00 per pound
+                per article.</p>
+            </div>
+          </div>
+          <div class="col-lg-6 px-3 py-3 mx-auto d-block" style="max-width: 640px;">
+            <img src="{% static 'img/serviceTypes/Vip.jpg' %}" class="img-fluid" alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-----=================/section type services===========================-->
+
+  <!-----=================about us===========================-->
+  <section id="about">
+    <div class="m-auto mt-4 px-4" id="equipo">
+      <h1 id="team" class="mb-5 fs-1 text-center">Small Teams, <span id="team" class="fw-bold">Great Results</span></h1>
+      <p id="color-p" class="fs-3 zurich text-start fw-light text-justify"><span id="team" class="fw-bold">ABOUT US:
+        </span>We are a company born from the need to improve efficiency,
+        flexibility, cost reduction and improvement of the customer experience in logistics and moving services.
+        Get the best experience from a supportive professional team no matter of size or distance your service will
+        be in the shortest possible time in the required place quickly and affordably. Thousands of satisfied customers,
+        the next is you!</p>
+      <p id="color-p" class="fs-3 zurich text-start fw-light"><span id="team" class="fw-bold">In NationwideMovers</span>
+        we value honesty and
+        nurture it in communication with all our customers, we employ are all moving industry posses the expertise
+        and customer-comes-first approach that you want during your moving experience. </p>
+      <p id="color-p" class="fs-3 zurich text-start fw-light">We guarantee that our quotes among the most affordable and
+        most accessible through city</p>
+    </div>
+    <div class="mt-5">
+      <img src="{% static 'img/about/equipo.png' %}" alt="teams" class="img-fluid">
+    </div>
+  </section>
+
+  <!-----=================/about us===========================-->
+
+  <!-----=================footer===========================-->
+  <footer id="footer" class="row p-4 pb-2">
+    <div class="container">
+      <div class="row">
+        <div id="logo-footer" class="col-xs-12 col-md-6 col-lg-3 text-center">
+          <a class="text-decoration-none" href="#"><img src="{% static 'img/footer/logo-rojo.jpg' %}" alt="logo"
+              width="auto"></a>
+          <h1 id="ocultar">Quick Link</h1>
+          <p><a id="ocultar" class="zurich text-decoration-none text-light fs-1 fw-bold" href="#">Services</a></p>
+          <p><a id="ocultar" class="zurich text-decoration-none text-light fs-1 fw-bold" href="#">Gallery</a></p>
+          <p><a id="ocultar" class="zurich text-decoration-none text-light fs-1 fw-bold" href="#">About Us</a></p>
+        </div>
+        <div class="col-xs-12 col-md-12 col-lg-9 text-light">
+          <div class="container-form">
+            <div class="form">
+              <div class="contact-info">
+                <h3 class="title-form">Let's get in touch</h3>
+                <p class="text zurich fs-4">
+                  Resolve all your relocation troubles with a simple
+                  reach-out to well-known and professional City local movers.!
+                </p>
+
+                <div class="info">
+                  <div class="information">
+                    <img src="{% static 'img/footer/location1.png' %}" class="icon-contact" alt="" />
+                    <p>Unit 1 12 Huxtable Av, Altona North VIC 3025</p>
+                  </div>
+                  <div class="information">
+                    <img src="{% static 'img/footer/email1.png' %}" class="icon-contact" alt="" />
+                    <p>hello@nationwidemovers.com.au</p>
+                  </div>
+                  <div class="information">
+                    <img src="{% static 'img/footer/phone1.png' %}" class="icon-contact" alt="" />
+                    <p>+61 452 030 218</p>
+                  </div>
+                </div>
+
+                <div class="social-media">
+                  <p>Connect with us :</p>
+                  <div class="social-icons">
+
+                    <div class="wrapper">
+                      <div id="rojo" class="button">
+                        <div class="icon-s">
+                          <i class="fab fa-facebook"></i>
+                        </div>
+                        <a class="text-decoration-none" href="#"><span class=" text-center">Facebook</span></a>
+                      </div>
+                      <div id="azul" class="button">
+                        <div class="icon-s">
+                          <i class="fab fa-instagram text-decoration: none"></i>
+                        </div>
+                        <a class="text-decoration-none" href="#"><span>Instagram</span></a>
+                      </div>
+                      <div id="verde" class="button">
+                        <div class="icon-s">
+                          <i class="fab fa-whatsapp text-decoration: none"></i>
+                        </div>
+                        <a class="text-decoration-none" href="#"><span>Whatsapp</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% block contact %}
+              {% endblock %}
+              <div class="contact-form">
+                {% if success %}
+                <div class="alert alert-success alert-dismissible fade show">
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                  {{ success }}
+                </div>
+                {% endif %}
+                <form method="POST" autocomplete="off" id="contact-form">
+                  {% csrf_token %}
+                  <h3 class="title-us">Contact us</h3>
+                  {{ contactForm.non_field_errors }}
+                  <div class="input-container mt-3 mb-3">
+                    {{ contactForm.contact_name.errors }}
+                    <label for="{{ contactForm.contact_name.label_id_name }}">Name</label>
+                    <span>Name</span>
+                    {{ contactForm.contact_name }}
+                  </div>
+                  <div class="input-container mt-3 mb-3">
+                    {{ contactForm.contact_sender.errors }}
+                    <label for="{{ contactForm.contact_sender.label_id_sender }}">Email</label>
+                    <span>Email</span>
+                    {{ contactForm.contact_sender }}
+                  </div>
+                  <div class="input-container mt-3 mb-3">
+                    {{ contactForm.contact_phoneNumber.errors }}
+                    <label for="{{ contactForm.contact_phoneNumber.label_id_phoneNumber }}">Phone Number</label>
+                    <span>Phone Number</span>
+                    {{ contactForm.contact_phoneNumber }}
+                  </div>
+                  <div class="input-container textarea mt-3 mb-3">
+                    {{ contactForm.contact_message.errors }}
+                    <label for="{{ contactForm.contact_message.label_id_message }}">Message</label>
+                    <span>Message</span>
+                    {{ contactForm.contact_message }}
+                  </div>
+                  <button class="text-decoration-none btn-send fw-bold" type="submit" value="Send">Send</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 pt-2">
+      <p class="zurich text-center text-light">Copyright - all rights reserved @ 2022</p>
+    </div>
+  </footer>
+  <!-----=================/footer===========================-->
+
+
+  <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/addrFinder.js' %}"></script>
+  <script src="{% static 'js/serviceConditions.js' %}" type="text/javascript"></script>
+</body>
+
+</html>
