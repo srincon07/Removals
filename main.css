@@ -1,0 +1,48 @@
+:root {
+    --mainFontSize: 1.6rem;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--mainFontSize);
+}
+header {
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem;
+    margin: 3rem;
+}
+.main-navbar ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+.main-navbar ul li a {
+    text-align: center;
+    float: none;
+    text-decoration: none;
+}
+#booking-section {
+    margin-top: 5rem;
+}
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem;
+    padding: 1rem;
+    border: 0.1rem solid black;
+    border-radius: 3%;
+}

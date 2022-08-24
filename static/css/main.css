@@ -1,0 +1,17 @@
+.booking-form {
+    background-color: rgb(144, 22, 22);
+}
+.main-btn {
+    background-color: rgb(16, 16, 80);
+    color: white;
+}
+.main-btn:hover {
+    color: rgb(69, 250, 33);
+}
+
+/* Modal styles */
+.f-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
