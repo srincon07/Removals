@@ -138,7 +138,7 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-GOOGLE_API_KEY = ['GOOGLE_API_KEY']
+GOOGLE_API_KEY = os.environ['GOOGLE_API_KEY']
 
 # Email conf
 EMAIL_HOST = os.environ['NWM_EMAIL_HOST']
