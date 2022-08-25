@@ -127,7 +127,7 @@ entrypoint.sh
 # Static files
 autocomplete.js
 images/
-# img/
+img/
 Docs/
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
