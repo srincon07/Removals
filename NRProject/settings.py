@@ -71,17 +71,28 @@ WSGI_APPLICATION = 'NRProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
+if 'RDS_DB_NAME' in os.environ:
+  DATABASES = {
     'default': {
+      'ENGINE': 'django.db.backends.postgresql',
+      'NAME': os.environ['RDS_DB_NAME'],
+      'USER': os.environ['RDS_USERNAME'],
+      'PASSWORD': os.environ['RDS_PASSWORD'],
+      'HOST': os.environ['RDS_HOSTNAME'],
+      'PORT': os.environ['RDS_PORT']
+    },
+  }
+else:
+  DATABASES = {
+      'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ['DB_NAME'],
         'USER': os.environ['DB_USER'],
         'PASSWORD': os.environ['DB_PASSWORD'],
         'HOST': 'localhost',
         'PORT': '5432'
-    },
-}
-
+      },
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -117,17 +128,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-GOOGLE_API_KEY = ['GOOGLE_API_KEY']
+GOOGLE_API_KEY = os.environ['GOOGLE_API_KEY']
 
 # Email conf
 EMAIL_HOST = os.environ['NWM_EMAIL_HOST']
@@ -138,9 +147,9 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
 # Security
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_HSTS_SECONDS = 1800
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+# SECURE_HSTS_SECONDS = 1800
+# SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
