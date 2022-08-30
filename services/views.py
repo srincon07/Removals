@@ -51,7 +51,7 @@ def sendServiceEmail(client, service, furniture):
         'Move type: ' + str(service['move']) + '\n' + \
         'Service type: ' + str(service['type']) + '\n\n' + \
         'Inventory: ' + '\n' + '\n'.join(inv)
-    recipients = ['hello@nationwidemovers.com.au']
+    recipients = ['hello@nationwidemovers.com.au', 'sarb07.au@gmail.com']
 
     send_mail(subject, message, sender, recipients)
 
@@ -64,7 +64,7 @@ def sendContactEmail(contact):
         'These are the contact details: \n' + sender + \
         '\n' + contact['contact_phoneNumber']
 
-    recipients = ['hello@nationwidemovers.com.au']
+    recipients = ['hello@nationwidemovers.com.au', 'sarb07.au@gmail.com']
 
     send_mail(subject, message, sender, recipients)
 
