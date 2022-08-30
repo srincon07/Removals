@@ -16,7 +16,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'nationwidemovers.ap-southeast-2.elasticbeanstalk.com',
-    'nationwidemovers.com.au/',
+    'www.nationwidemovers.com.au',
+    'nationwidemovers.com.au',
 ]
 
 
