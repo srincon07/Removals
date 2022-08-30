@@ -14,7 +14,10 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['nationwidemovers.ap-southeast-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = [
+    'nationwidemovers.ap-southeast-2.elasticbeanstalk.com',
+    'nationwidemovers.com.au/',
+]
 
 
 # Application definition
