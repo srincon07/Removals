@@ -51,7 +51,7 @@ def sendServiceEmail(client, service, furniture):
         'Move type: ' + str(service['move']) + '\n' + \
         'Service type: ' + str(service['type']) + '\n\n' + \
         'Inventory: ' + '\n' + '\n'.join(inv)
-    recipients = ['sarb07.au@gmail.com']
+    recipients = ['hello@nationwidemovers.com.au', 'sarb07.au@gmail.com']
 
     send_mail(subject, message, sender, recipients)
 
@@ -61,9 +61,10 @@ def sendContactEmail(contact):
     sender = contact['contact_sender']
     message = contact['contact_name'] + ' just sent the following message:' + '\n\n' + \
         contact['contact_message'] + '\n\n' + \
-        'These are the contact details: \n' + sender + '\n' + contact['contact_phoneNumber']
+        'These are the contact details: \n' + sender + \
+        '\n' + contact['contact_phoneNumber']
 
-    recipients = ['sarb07.au@gmail.com']
+    recipients = ['hello@nationwidemovers.com.au', 'sarb07.au@gmail.com']
 
     send_mail(subject, message, sender, recipients)
 
@@ -98,7 +99,8 @@ def booking_service(request):
                     formClient.save()
 
                 new_service = formService.save(commit=False)
-                new_service.clientId = Client.objects.get(email=clientForm['email'])
+                new_service.clientId = Client.objects.get(
+                    email=clientForm['email'])
                 new_service.save()
 
                 # Dict for the service inventory
@@ -112,7 +114,7 @@ def booking_service(request):
                         inventory[f_item.name] = quantity
 
                 sendServiceEmail(clientForm, serviceForm, inventory)
-                alert['success'] = 'Your request has been sent successfuly.'
+                alert['success'] = 'Thanks for reach us. We\'ll contact you soon.'
         else:
             if form.is_valid():
                 contactForm = form.cleaned_data

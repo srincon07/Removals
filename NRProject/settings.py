@@ -1,5 +1,44 @@
 import os
+# import requests
 from pathlib import Path
+
+
+# def is_ec2_linux():
+#     """Detect if we're running on an EC2 Linux Instance
+#     See http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/identify_ec2_instances.html
+#     """
+#     if os.path.isfile("/sys/hypervisor/uuid"):
+#         with open("/sys/hypervisor/uuid") as f:
+#             uuid = f.read()
+#             return uuid.startswith("ec2")
+#     return False
+
+# def get_token():
+#     """See the authorization token to live for 6 hours (maximun)"""
+#     headers = {
+#         'X-aws-ec2-metadata-token-ttl-seconds': '21600',
+#     }
+#     response = requests.put('http://169.254.169.254/latest/api/token', headers=headers)
+#     return response.text
+
+# def get_linux_ec2_private_ip():
+#     """Get the private IP Address of the machine if running on a ec2 Linux server
+#         See https://docs.aws.amazon.com/AWSEC2/ltest/UserGuide/instancedata-data-retrieval.html
+#     """
+#     if not is_ec2_linux():
+#         return None
+#     try:
+#         token = get_token()
+#         headers = {
+#             'X-aws-ec2-metadata-token': f"{token}",
+#         }
+#         response = requests.get('http://169.254.169.254/latest/meta-data/local-ipv4', headers=headers)
+#         return response.text
+#     except:
+#         return None
+#     finally:
+#         if response:
+#             response.close()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,7 +53,14 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['nationwidemovers.ap-southeast-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = [
+    'nationwidemovers.ap-southeast-2.elasticbeanstalk.com',
+    'www.nationwidemovers.com.au',
+    'nationwidemovers.com.au',
+]
+# private_ip = get_linux_ec2_private_ip()
+# if private_ip:
+#     ALLOWED_HOSTS.append(private_ip)
 
 
 # Application definition
@@ -81,7 +127,7 @@ if 'RDS_DB_NAME' in os.environ:
       'HOST': os.environ['RDS_HOSTNAME'],
       'PORT': os.environ['RDS_PORT']
     },
-  }
+}
 else:
   DATABASES = {
       'default': {
@@ -92,7 +138,7 @@ else:
         'HOST': 'localhost',
         'PORT': '5432'
       },
-    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
