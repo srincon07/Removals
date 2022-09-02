@@ -56,6 +56,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'Nationwide-Movers.ap-southeast-2.elasticbeanstalk.com',
     'nationwidemovers.com.au',
+    'www.nationwidemovers.com.au',
 ]
 private_ip = get_linux_ec2_private_ip()
 if private_ip:
