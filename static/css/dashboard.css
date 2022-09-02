@@ -1,0 +1,13 @@
+.logo-dashboard {
+    display: flex;
+    justify-content: end;
+}
+
+.main-container a:link, a:visited {
+    text-decoration: none;
+    color: #555;
+}
+
+.main-container .tile:hover {
+    background-color: rgb(240, 230, 227) !important;
+}

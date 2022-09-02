@@ -50,6 +50,24 @@ class Service_type(models.Model):
         return self.name
 
 
+class Service_status(models.Model):
+    """Service status model
+    
+    Model to register the status for the services.
+    """
+
+    name = models.CharField(max_length=50, default='Booked', verbose_name='Service Status')
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name_plural = 'Service Status'
+        ordering = ('-created',)
+
+    def __str__(self) -> str:
+        return self.name
+
+
 class Service(models.Model):
     """Service model
     
@@ -59,6 +77,7 @@ class Service(models.Model):
     clientId = models.ForeignKey(Client, on_delete=models.PROTECT, verbose_name='Client')
     move = models.ForeignKey(Move_type, on_delete=models.PROTECT, verbose_name='Move type')
     type = models.ForeignKey(Service_type, on_delete=models.PROTECT, verbose_name='Service type')
+    status = models.ForeignKey(Service_status, on_delete=models.PROTECT, default=1, verbose_name='Service Status')
     vehicle = models.ManyToManyField(Vehicle, related_name='vehicles', verbose_name='Vehicle')
     furniture_item = models.ManyToManyField(Furniture_item, related_name='furniture_items', through='Service_item', verbose_name='Furniture Item')
     pickUp = models.CharField(max_length=100, verbose_name='Pick-up')
@@ -69,7 +88,6 @@ class Service(models.Model):
     comment = models.TextField(blank=True, null=True, verbose_name='Service Comments')
     price = models.IntegerField(verbose_name='Service Price', null=True)
     active = models.BooleanField(default=True, verbose_name='Active')
-    status = models.BooleanField(default=False, verbose_name='Status')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
@@ -97,3 +115,6 @@ class Service_item(models.Model):
     class Meta:
         verbose_name_plural = 'Service Items'
         ordering = ('-created',)
+
+    def __str__(self) -> str:
+        return self.item

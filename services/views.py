@@ -4,9 +4,10 @@ import pdb
 from django.shortcuts import render
 from django.core.mail import send_mail
 from django.core.exceptions import ObjectDoesNotExist
+from django.views.generic import ListView
 
 # Services
-from .models import Service_type, Service_item
+from .models import Service, Service_type, Service_item
 
 # Clients
 from clients.models import Client
@@ -112,7 +113,7 @@ def booking_service(request):
                         inventory[f_item.name] = quantity
 
                 sendServiceEmail(clientForm, serviceForm, inventory)
-                alert['success'] = 'Your request has been sent successfuly.'
+                alert['success'] = 'Thanks for reach us. We\'ll contact you soon.'
         else:
             if form.is_valid():
                 contactForm = form.cleaned_data
@@ -127,7 +128,7 @@ def booking_service(request):
     serviceTypes = Service_type.objects.all()
     types = [type for type in serviceTypes]
 
-    return render(request, './services/service_form.html', {
+    return render(request, './index.html', {
         'formService': formService,
         'formClient': formClient,
         'alertSuccess': alert['success'],
@@ -137,3 +138,13 @@ def booking_service(request):
         'contactForm': form,
         'success': success_message
     })
+
+
+class ServicesAllView(ListView):
+    """Return all the services"""
+
+    template_name = 'services/servicesDashboard.html'
+    model = Service
+    ordering = ('-created')
+    paginate_by = 8
+    context_object_name = 'services'
