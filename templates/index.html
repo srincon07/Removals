@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% block head_content %}
-
+  <title>Nationwide Movers Pty Ltd</title>
   {% endblock %}
   {% load static %}
   <!---==========Bootstrap y css==========-->
@@ -42,6 +42,7 @@
 <body class="position-relative" data-spay="scroll" data-target="#header-nav">
   {% include "nav.html" %}
   <header>
+<<<<<<< HEAD
     <!--====================carousel==================================-->
     <section id="main-carousel">
       <div class="container-fliud">
@@ -73,189 +74,20 @@
       </div>
     </section>
     <!--====================/carousel===================================-->
+=======
+  {% include "carousel.html" %}
+>>>>>>> development
   </header>
   <!--====================contenido y formulario======================-->
 
   <main id="service" class="container-fluid">
-    <div class="row ">
-      <div class="col-12 col-lg-6 md-4 mt-3">
-        <!-- <section id="servicio" class="services"> -->
-        <div class="container">
-          <div class="heading">
-            <h2> Services</h2>
-            <p class="description fs-3 text-center">We provide services your business needs</p>
-          </div>
-          <div class="row">
-            <div class="col-12 col-lg-12 d-flex align-items-stretch mb-5">
-              <div class="icon_box one">
-                <div class="icon"><i class="bi bi-truck"></i></div>
-                <h4 class="title fs-3">Schedule your move</h4>
-                <p class="description fs-4 pb-3">For those who are about to start a move, we have developed different
-                  types of services according to their needs, because we understand that moving to a new home means that
-                  you will have many things to do and this should not be a problem to worry about. </p>
-                <p class="description fs-4">
-                  We strive to be in constant communication with
-                  our customers until the job is done. To get a free quote,
-                  to arrange your movers, or if you have questions or special
-                  requests, just drop us a line. We look forward to serving you!
-                </p>
-                <p class="description pt-5">
-                <p class="description fs-4 fw-bold"><i class="bi bi-check"></i> Commercial moves</p>
-                <p class="description fs-4 fw-bold"><i class="bi bi-check"></i> Local removals</p>
-                <p class="description fs-4 fw-bold"><i class="bi bi-check"></i> Residential moves</p>
-                <p class="description fs-4 fw-bold"><i class="bi bi-check"></i> Packing and Unpacking Service</p>
-                <p class="description fs-4 fw-bold"><i class="bi bi-check"></i> Furniture assembly/disassembly services
-                </p>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        </section>
-      </div>
-      <div class="col-12 col-lg-6  mb-2 mt-4 ">
-        {% block booking %}
-
-        {% endblock %}
-      </div>
-    </div>
+    {% include "bookingForm.html" %}
   </main>
   <!--====================/contenido y formulario======================-->
 
-  <!-----=================about us===========================-->
-  <section id="about">
-    <div class="m-auto mt-4 px-4" id="equipo">
-      <h1 id="team" class="mb-5 fs-1 text-center">Small Teams, <span id="team" class="fw-bold">Great Results</span></h1>
-      <p id="color-p" class="fs-3 zurich text-start fw-light text-justify"><span id="team" class="fw-bold">ABOUT US:
-        </span>We are a company born from the need to improve efficiency,
-        flexibility, cost reduction and improvement of the customer experience in logistics and moving services.
-        Get the best experience from a supportive professional team no matter of size or distance your service will
-        be in the shortest possible time in the required place quickly and affordably. Thousands of satisfied customers,
-        the next is you!</p>
-      <p id="color-p" class="fs-3 zurich text-start fw-light">At <span id="team" class="fw-bold">NationwideMovers</span>
-        we value honesty and encourage it in our communication with all of our clients. We employ moving industry workers who possess the experience and "customer-comes-first" approach you want during your moving experience. </p>
-      <p id="color-p" class="fs-3 zurich text-start fw-light">We guarantee the cheapest and most accessible service in the industry.</p>
-    </div>
-    <div class="mt-5">
-      <img src="{% static 'img/about/equipo.jpg' %}" alt="teams" class="img-fluid">
-    </div>
-  </section>
+  {% include "about.html" %}
 
-  <!-----=================/about us===========================-->
-
-  <!-----=================footer===========================-->
-  <footer id="footer" class="row p-4 pb-2">
-    <div class="container">
-      <div class="row">
-        <div id="logo-footer" class="col-xs-12 col-md-6 col-lg-3 text-center">
-          <a class="text-decoration-none" href="#"><img src="{% static 'img/footer/red-logo.jpg' %}" alt="logo"
-              width="auto"></a>
-          <!-- <h1 id="ocultar">Quick Link</h1> -->
-          <p><a id="ocultar" class="zurich text-decoration-none text-light fs-1 fw-bold" href="{% url 'index:index' %}">Home</a></p>
-          <p><a id="ocultar" class="zurich text-decoration-none text-light fs-1 fw-bold" href="#service">Services</a></p>
-          <p><a id="ocultar" class="zurich text-decoration-none text-light fs-1 fw-bold" href="#about">About Us</a></p>
-        </div>
-        <div class="col-xs-12 col-md-12 col-lg-9 text-light">
-          <div class="container-form">
-            <div class="form">
-              <div class="contact-info">
-                <h3 class="title-form">Let's get in touch</h3>
-                <p class="text zurich fs-4">
-                  Solve all your relocation problems with a simple contact with a well-known and professional moving company with the best service!
-                </p>
-
-                <div class="info">
-                  <div class="information">
-                    <img src="{% static 'img/footer/location.png' %}" class="icon-contact" alt="" />
-                    <p>Unit 1 12 Huxtable Av, Altona North VIC 3025</p>
-                  </div>
-                  <div class="information">
-                    <img src="{% static 'img/footer/email.png' %}" class="icon-contact" alt="" />
-                    <p>hello@nationwidemovers.com.au</p>
-                  </div>
-                  <div class="information">
-                    <img src="{% static 'img/footer/phone.png' %}" class="icon-contact" alt="" />
-                    <p>+61 452 030 218</p>
-                  </div>
-                </div>
-
-                <div class="social-media">
-                  <p>Connect with us :</p>
-                  <div class="social-icons">
-
-                    <div class="wrapper">
-                      <div id="rojo" class="button">
-                        <div class="icon-s">
-                          <i class="fab fa-facebook"></i>
-                        </div>
-                        <a class="text-decoration-none" href="#"><span class=" text-center">Facebook</span></a>
-                      </div>
-                      <div id="azul" class="button">
-                        <div class="icon-s">
-                          <i class="fab fa-instagram text-decoration: none"></i>
-                        </div>
-                        <a class="text-decoration-none" href="#"><span>Instagram</span></a>
-                      </div>
-                      <div id="verde" class="button">
-                        <div class="icon-s">
-                          <i class="fab fa-whatsapp text-decoration: none"></i>
-                        </div>
-                        <a class="text-decoration-none" href="#"><span>Whatsapp</span></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {% block contact %}
-              {% endblock %}
-              <div class="contact-form">
-                {% if success %}
-                <div class="alert alert-success alert-dismissible fade show">
-                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                  {{ success }}
-                </div>
-                {% endif %}
-                <form method="POST" autocomplete="off" id="contact-form">
-                  {% csrf_token %}
-                  <h3 class="title-us">Contact us</h3>
-                  {{ contactForm.non_field_errors }}
-                  <div class="input-container mt-3 mb-3">
-                    {{ contactForm.contact_name.errors }}
-                    <label for="{{ contactForm.contact_name.label_id_name }}">Name</label>
-                    <span>Name</span>
-                    {{ contactForm.contact_name }}
-                  </div>
-                  <div class="input-container mt-3 mb-3">
-                    {{ contactForm.contact_sender.errors }}
-                    <label for="{{ contactForm.contact_sender.label_id_sender }}">Email</label>
-                    <span>Email</span>
-                    {{ contactForm.contact_sender }}
-                  </div>
-                  <div class="input-container mt-3 mb-3">
-                    {{ contactForm.contact_phoneNumber.errors }}
-                    <label for="{{ contactForm.contact_phoneNumber.label_id_phoneNumber }}">Phone Number</label>
-                    <span>Phone Number</span>
-                    {{ contactForm.contact_phoneNumber }}
-                  </div>
-                  <div class="input-container textarea mt-3 mb-3">
-                    {{ contactForm.contact_message.errors }}
-                    <label for="{{ contactForm.contact_message.label_id_message }}">Message</label>
-                    <span>Message</span>
-                    {{ contactForm.contact_message }}
-                  </div>
-                  <button class="text-decoration-none btn-send fw-bold" type="submit" value="Send">Send</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 pt-2">
-      <p class="zurich text-center text-light">Copyright - all rights reserved @ 2022</p>
-    </div>
-  </footer>
-  <!-----=================/footer===========================-->
+  {% include "footer.html" %}
 
 
   <script src="{% static 'js/app.js' %}"></script>
