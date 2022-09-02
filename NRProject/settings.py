@@ -54,8 +54,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'nationwidemovers.ap-southeast-2.elasticbeanstalk.com',
-    'www.nationwidemovers.com.au',
+    'Nationwide-Movers.ap-southeast-2.elasticbeanstalk.com',
     'nationwidemovers.com.au',
 ]
 private_ip = get_linux_ec2_private_ip()
