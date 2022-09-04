@@ -1,11 +1,5 @@
-{% extends "index.html" %}
 {% load static %}
-{% block head_content %}
-<title>Nationwide Movers</title>
-{% endblock %}
 
-
-{% block booking %}
 <section id="formulario">
   <h1 class="text-center pt-3">GET YOUR ESTIMATE NOW!</h1>
   <div class="container">
@@ -113,35 +107,35 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <div id="accordion">
+
+        <div class="accordion" id="accordionCard">
           {% for t in furnitureTypes %}
-          <div class="card modal-card">
-            <div class="card-header">
-              <a class="btn" data-bs-toggle="collapse" href="#{{ t.name }}">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading{{ t.name }}">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ t.name }}" aria-expanded="false" aria-controls="collapse{{ t.name }}">
                 {{ t.name }}
-              </a>
-            </div>
-            {% for i in furnitureItems %}
-            {% if i.type == t %}
-            <div id="{{ t.name }}" class="collapse show" data-bs-parent="#accordion">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    {{ i.name }}
-                  </div>
-                  <div class="col input-group input-group-sm">
-                    <span class="input-group-text">Qty</span>
-                    <input type="number" name="{{ i.name }}" class="form-control form-control-sm" value="0"
-                      form="bookingForm" />
-                  </div>
-                </div>
+              </button>
+            </h2>
+            <div id="collapse{{ t.name }}" class="accordion-collapse collapse" aria-labelledby="heading{{ t.name }}" data-bs-parent="#accordionCard">
+              <div class="accordion-body">                
+                {% for i in furnitureItems %}
+                {% if i.type == t %}
+                    <div class="row">
+                      <div class="col">
+                        {{ i.name }}
+                      </div>
+                      <div class="col input-group input-group-sm">
+                        <span class="input-group-text">Qty</span>
+                        <input type="number" name="{{ i.name }}" class="form-control form-control-sm" value="0"
+                          form="bookingForm" />
+                      </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
               </div>
             </div>
-            {% endif %}
-            {% endfor %}
           </div>
           {% endfor %}
-
         </div>
       </div>
 
@@ -158,5 +152,3 @@
 {{ item.condition|json_script:item.name}}
 {% endfor %}
 
-
-{% endblock %}

@@ -1,0 +1,115 @@
+{% load static %}
+
+<!-----=================footer===========================-->
+<footer id="footer" class="row p-4 pb-2">
+    <div class="container">
+      <div class="row">
+        <div id="logo-footer" class="col-xs-12 col-md-6 col-lg-3 text-center">
+          <a class="text-decoration-none" href="#"><img src="{% static 'img/footer/red-logo.jpg' %}" alt="logo"
+              width="auto"></a>
+          <!-- <h1 id="ocultar">Quick Link</h1> -->
+          <p><a id="ocultar" class="zurich text-decoration-none text-light fs-1 fw-bold" href="{% url 'index:index' %}">Home</a></p>
+          <p><a id="ocultar" class="zurich text-decoration-none text-light fs-1 fw-bold" href="#service">Services</a></p>
+          <p><a id="ocultar" class="zurich text-decoration-none text-light fs-1 fw-bold" href="#about">About Us</a></p>
+        </div>
+        <div class="col-xs-12 col-md-12 col-lg-9 text-light">
+          <div class="container-form">
+            <div class="form">
+              <div class="contact-info">
+                <h3 class="title-form">Let's get in touch</h3>
+                <p class="text zurich fs-4">
+                  Solve all your relocation problems with a simple contact with a well-known and professional moving company with the best service!
+                </p>
+
+                <div class="info">
+                  <div class="information">
+                    <img src="{% static 'img/footer/location.png' %}" class="icon-contact" alt="" />
+                    <p>Unit 1 12 Huxtable Av, Altona North VIC 3025</p>
+                  </div>
+                  <div class="information">
+                    <img src="{% static 'img/footer/email.png' %}" class="icon-contact" alt="" />
+                    <p>hello@nationwidemovers.com.au</p>
+                  </div>
+                  <div class="information">
+                    <img src="{% static 'img/footer/phone.png' %}" class="icon-contact" alt="" />
+                    <p>+61 452 030 218</p>
+                  </div>
+                </div>
+
+                <div class="social-media">
+                  <p>Connect with us :</p>
+                  <div class="social-icons">
+
+                    <div class="wrapper">
+                      <div id="rojo" class="button">
+                        <div class="icon-s">
+                          <i class="fab fa-facebook"></i>
+                        </div>
+                        <a class="text-decoration-none" href="#"><span class=" text-center">Facebook</span></a>
+                      </div>
+                      <div id="azul" class="button">
+                        <div class="icon-s">
+                          <i class="fab fa-instagram text-decoration: none"></i>
+                        </div>
+                        <a class="text-decoration-none" href="#"><span>Instagram</span></a>
+                      </div>
+                      <div id="verde" class="button">
+                        <div class="icon-s">
+                          <i class="fab fa-whatsapp text-decoration: none"></i>
+                        </div>
+                        <a class="text-decoration-none" href="#"><span>Whatsapp</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% block contact %}
+              {% endblock %}
+              <div class="contact-form">
+                {% if success %}
+                <div class="alert alert-success alert-dismissible fade show">
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                  {{ success }}
+                </div>
+                {% endif %}
+                <form method="POST" autocomplete="off" id="contact-form">
+                  {% csrf_token %}
+                  <h3 class="title-us">Contact us</h3>
+                  {{ contactForm.non_field_errors }}
+                  <div class="input-container mt-3 mb-3">
+                    {{ contactForm.contact_name.errors }}
+                    <label for="{{ contactForm.contact_name.label_id_name }}">Name</label>
+                    <span>Name</span>
+                    {{ contactForm.contact_name }}
+                  </div>
+                  <div class="input-container mt-3 mb-3">
+                    {{ contactForm.contact_sender.errors }}
+                    <label for="{{ contactForm.contact_sender.label_id_sender }}">Email</label>
+                    <span>Email</span>
+                    {{ contactForm.contact_sender }}
+                  </div>
+                  <div class="input-container mt-3 mb-3">
+                    {{ contactForm.contact_phoneNumber.errors }}
+                    <label for="{{ contactForm.contact_phoneNumber.label_id_phoneNumber }}">Phone Number</label>
+                    <span>Phone Number</span>
+                    {{ contactForm.contact_phoneNumber }}
+                  </div>
+                  <div class="input-container textarea mt-3 mb-3">
+                    {{ contactForm.contact_message.errors }}
+                    <label for="{{ contactForm.contact_message.label_id_message }}">Message</label>
+                    <span>Message</span>
+                    {{ contactForm.contact_message }}
+                  </div>
+                  <button class="text-decoration-none btn-send fw-bold" type="submit" value="Send">Send</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 pt-2">
+      <p class="zurich text-center text-light">Copyright - all rights reserved @ 2022</p>
+    </div>
+  </footer>
+  <!-----=================/footer===========================-->
