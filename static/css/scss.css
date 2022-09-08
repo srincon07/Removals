@@ -28,11 +28,13 @@ body{
 #quote{
   background-color: #da2228;
   font-size:24px;    
-  border-radius: 50px;  
+  border-radius: 50px;
+  margin-right: 1rem;
 }
 /* .nav-scrollspy .active{
   background-color: #56da61;
 } */
+
 /* *********================== estilos para Carousel =====================********** */
 
 .carousel-item{

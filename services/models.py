@@ -10,6 +10,9 @@ from vehicles.models import Vehicle
 # Inventory
 from inventory.models import Furniture_item
 
+# Human Resources
+from humanres.models import Collaborator
+
 # Create your models here.
 class Move_type(models.Model):
     """Move type model
@@ -37,7 +40,7 @@ class Service_type(models.Model):
     """
 
     name = models.CharField(max_length=50, verbose_name='Service Type')
-    condition = models.TextField(null=True, blank=True, verbose_name='Service Type Conditiions')
+    condition = models.TextField(null=True, blank=True, verbose_name='Service Type Conditions')
     active = models.BooleanField(default=True, verbose_name='Active')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
@@ -56,7 +59,7 @@ class Service_status(models.Model):
     Model to register the status for the services.
     """
 
-    name = models.CharField(max_length=50, default='Booked', verbose_name='Service Status')
+    name = models.CharField(max_length=50, verbose_name='Service Status')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
@@ -80,6 +83,7 @@ class Service(models.Model):
     status = models.ForeignKey(Service_status, on_delete=models.PROTECT, default=1, verbose_name='Service Status')
     vehicle = models.ManyToManyField(Vehicle, related_name='vehicles', verbose_name='Vehicle')
     furniture_item = models.ManyToManyField(Furniture_item, related_name='furniture_items', through='Service_item', verbose_name='Furniture Item')
+    collaborator = models.ManyToManyField(Collaborator, related_name='collaborators', verbose_name='Collaborators')
     pickUp = models.CharField(max_length=100, verbose_name='Pick-up')
     pickUpComment = models.TextField(null=True, blank=True, verbose_name='Pick-up Comments')
     dropOff = models.CharField(max_length=100, verbose_name='Drop-off')

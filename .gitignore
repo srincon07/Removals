@@ -52,6 +52,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+EC2_settings.py
 local_settings.py
 
 # Flask stuff:
@@ -115,9 +116,9 @@ mediafiles/
 # Ignore Django Migrations in Development if you are working on team
 
 # Only for Development only
-# **/migrations/**
-# !**/migrations
-# !**/migrations/__init__.py
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
 
 # Docker
 docker-compose.yml

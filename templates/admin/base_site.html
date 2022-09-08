@@ -1,0 +1,12 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ 'Nationwide Movers Admin' }}{% endblock %}
+
+{% block branding %}
+<!-- <h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1> -->
+<div>
+    <img src="{% static 'img/corporate-logo-small.jpg' %}" alt="Corporate Logo">
+</div>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
