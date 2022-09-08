@@ -38,7 +38,7 @@ class BloodType(models.Model):
 
 
 class Genre(models.Model):
-    genre = models.CharField(max_length=3, verbose_name='Genre')
+    genre = models.CharField(max_length=10, verbose_name='Genre')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
